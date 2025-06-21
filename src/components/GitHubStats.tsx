@@ -21,8 +21,8 @@ interface Repository {
 }
 
 const GitHubStats = () => {
-  const [username, setUsername] = useState("octocat");
-  const [inputUsername, setInputUsername] = useState("octocat");
+  const [username, setUsername] = useState("raptor7197");
+  const [inputUsername, setInputUsername] = useState("raptor7197");
   const [userData, setUserData] = useState<GitHubUser | null>(null);
   const [repositories, setRepositories] = useState<Repository[]>([]);
   const [loading, setLoading] = useState(false);
@@ -96,20 +96,13 @@ const GitHubStats = () => {
           </div>
           
           <div className="flex gap-2">
-            <input
-              type="text"
-              value={inputUsername}
-              onChange={(e) => setInputUsername(e.target.value)}
-              onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-              placeholder="Enter GitHub username..."
-              className="flex-1 bg-gray-800 border border-green-500/30 rounded px-3 py-2 text-white font-mono text-sm focus:border-green-500/60 focus:outline-none"
-            />
+            
             <button
               onClick={handleSearch}
               disabled={loading}
               className="px-4 py-2 bg-green-500/20 border border-green-500/30 rounded text-green-400 font-mono text-sm hover:bg-green-500/30 transition-colors disabled:opacity-50"
             >
-              <Search className="w-4 h-4" />
+             
             </button>
           </div>
         </div>
@@ -124,7 +117,6 @@ const GitHubStats = () => {
           <div className="text-center py-8">
             <div className="text-green-400 font-mono">Loading...</div>
           </div>
-        // ...existing code...
         ) : userData ? (
           <>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-6 sm:mb-8">
@@ -192,7 +184,6 @@ const GitHubStats = () => {
                 </div>
               </div>
             </div>
-            {/* <-- This closing curly bracket was misplaced and is now removed */}
 
             <div className="bg-gray-900/80 border border-green-500/30 rounded-lg p-4 sm:p-6 glow-hover backdrop-blur-sm mb-6 sm:mb-8">
               <div className="flex items-center space-x-2 mb-4">

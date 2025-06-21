@@ -5,20 +5,20 @@ import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 
 function MatrixRain() {
-  const groupRef = useRef<THREE.Group>(null);
+  const groupRef = useRef<THREE.Group>(null); //create a 3.js object 
   
   const streams = useMemo(() => {
-    const streamCount = 60;
+    const streamCount = 18;
     const streams = [];
     
     for (let i = 0; i < streamCount; i++) {
       streams.push({
         x: (Math.random() - 0.5) * 200,
         characters: Array.from({ length: 20 }, (_, j) => ({
-          char: String.fromCharCode(0x30A0 + Math.random() * 96),
+          char: '•',
           y: Math.random() * 100 + 50,
           opacity: Math.max(0.1, 1 - j * 0.1),
-          speed: 0.5 + Math.random() * 1
+          speed: 0.5 + Math.random()
         }))
       });
     }
@@ -59,7 +59,7 @@ function MatrixRain() {
             key={`${streamIndex}-${charIndex}`}
             position={[stream.x, char.y, -20]}
           >
-            <planeGeometry args={[1.5, 2]} />
+            <planeGeometry args={[1, 1.5]} />
             <meshBasicMaterial
               color="#00ff41"
               transparent
@@ -90,7 +90,9 @@ function StarField() {
 
   useFrame((state) => {
     if (meshRef.current) {
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.02;
+      meshRef.current.rotation.y = state.clock.elapsedTime * 0.06;
+      meshRef.current.rotation.x = state.clock.elapsedTime * 0.03;
+
     }
   });
 
@@ -99,10 +101,10 @@ function StarField() {
       <PointMaterial
         transparent
         color="#ffffff"
-        size={0.1}
+        size={0.9}
         sizeAttenuation={true}
         depthWrite={false}
-        opacity={1}
+        opacity={.7}
       />
     </Points>
   );
@@ -116,9 +118,9 @@ const ThreeBackground = () => {
         <pointLight position={[20, 20, 20]} color="#00ff41" intensity={0.6} />
         
         <StarField />
-        <MatrixRain />
+        {/* <MatrixRain /> */}
       </Canvas>
-      <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-green-900/20 to-black/90 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-green-900/20 to-emerald-950 pointer-events-none" />
     </div>
   );
 };
