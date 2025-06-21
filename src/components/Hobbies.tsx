@@ -109,50 +109,47 @@ const Hobbies = () => {
           })}
         </div>
 
-        {/* Movies Popup */}
         {activePopup === 'movies' && (
-          <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className="bg-gray-900/95 rounded-lg border border-red-400/30 max-w-2xl w-full max-h-[80vh] overflow-y-auto">
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-xl font-bold text-red-400 font-mono flex items-center gap-3">
-                    <Film className="w-5 h-5" />
-                    ~/movies/recently_watched
-                  </h3>
-                  <button
-                    onClick={closePopup}
-                    className="p-2 rounded hover:bg-gray-800 transition-colors"
-                  >
-                    <X className="w-4 h-4 text-gray-400" />
-                  </button>
+  <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[9999] flex items-center justify-center p-4">
+    <div className="bg-gray-900/95 rounded-lg border border-red-400/30 max-w-2xl w-full max-h-[80vh] overflow-y-auto z-[10000]">
+      <div className="p-6 z-[10001]">
+        <div className="flex items-center justify-between mb-6 z-[10002]">
+          <h3 className="text-xl font-bold text-red-400 font-mono flex items-center gap-3 z-[10003]">
+            <Film className="w-5 h-5" />
+            ~/movies/recently_watched
+          </h3>
+          <button
+            onClick={closePopup}
+            className="p-2 rounded hover:bg-gray-800 transition-colors"
+          >
+            <X className="w-4 h-4 text-gray-400" />
+          </button>
+        </div>
+        <div className="space-y-3">
+          {recentMovies.map((movie, index) => (
+            <div key={index} className="p-4 rounded bg-gray-800/50 border border-red-400/20 hover:border-red-400/40 transition-colors">
+              <div className="flex justify-between items-start">
+                <div>
+                  <h4 className="text-white font-mono font-semibold">{movie.title}</h4>
+                  <p className="text-gray-400 font-mono text-sm">{movie.year}</p>
                 </div>
-                <div className="space-y-3">
-                  {recentMovies.map((movie, index) => (
-                    <div key={index} className="p-4 rounded bg-gray-800/50 border border-red-400/20 hover:border-red-400/40 transition-colors">
-                      <div className="flex justify-between items-start">
-                        <div>
-                          <h4 className="text-white font-mono font-semibold">{movie.title}</h4>
-                          <p className="text-gray-400 font-mono text-sm">{movie.year}</p>
-                        </div>
-                        <span className="px-2 py-1 rounded text-xs bg-red-400/20 text-red-300 border border-red-400/30 font-mono">
-                          {movie.genre}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                <span className="px-2 py-1 rounded text-xs bg-red-400/20 text-red-300 border border-red-400/30 font-mono">
+                  {movie.genre}
+                </span>
               </div>
             </div>
-          </div>
-        )}
-
-        {/* Books Popup */}
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+)}
         {activePopup === 'books' && (
-          <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className="bg-gray-900/95 rounded-lg border border-blue-400/30 max-w-2xl w-full max-h-[80vh] overflow-y-auto">
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-xl font-bold text-blue-400 font-mono flex items-center gap-3">
+          <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[9999] flex items-center justify-center p-4">
+            <div className="bg-gray-900/95 rounded-lg border border-blue-400/30 max-w-2xl w-full max-h-[80vh] overflow-y-auto z-[10000]">
+              <div className="p-6 z-[100001]">
+                <div className="flex items-center justify-between mb-6 z-[10002]">
+                  <h3 className="text-xl font-bold text-blue-400 font-mono flex items-center gap-3 z-[10003]">
                     <Book className="w-5 h-5" />
                     ~/books/recently_read
                   </h3>

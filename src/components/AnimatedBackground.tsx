@@ -1,13 +1,11 @@
 
 import React from "react";
 
-// Subtle background: large, softly blended blurred colored divs with reduced opacity.
 const AnimatedBackground = () => (
   <div
     className="fixed inset-0 -z-10 pointer-events-none overflow-hidden"
     style={{ background: "#0f0c24" }}
   >
-    {/* Colorful blurred color spots */}
     <div
       className="absolute w-[60vw] h-[60vw] top-[-20vw] left-[-15vw]"
       style={{

@@ -19,7 +19,6 @@ const AboutMe = () => {
         </div>
 
         <div className="bg-gray-900/90 backdrop-blur border border-green-500/30 rounded-lg overflow-hidden">
-          {/* Terminal Header */}
           <div className="flex items-center justify-between px-6 py-3 bg-gray-800/50 border-b border-green-500/20">
             <div className="flex items-center space-x-2">
               <div className="w-3 h-3 bg-red-500 rounded-full"></div>
@@ -29,7 +28,6 @@ const AboutMe = () => {
             <span className="text-green-400 font-mono text-sm">~/about/profile.md</span>
           </div>
 
-          {/* Content */}
           <div className="p-8">
             <div className="font-mono text-sm text-green-400 mb-4">
               <span className="text-gray-500">$</span> cat profile.md
@@ -55,12 +53,11 @@ const AboutMe = () => {
               </p>
             </div>
 
-            {/* Quick Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
               <div className="flex items-center space-x-3 p-4 bg-gray-800/50 rounded-lg border border-green-500/20">
                 <Code className="w-6 h-6 text-blue-400" />
                 <div>
-                  <div className="text-white font-mono font-semibold">5+ Years</div>
+                  <div className="text-white font-mono font-semibold">since 2023</div>
                   <div className="text-gray-400 font-mono text-sm">Experience</div>
                 </div>
               </div>
@@ -68,7 +65,7 @@ const AboutMe = () => {
               <div className="flex items-center space-x-3 p-4 bg-gray-800/50 rounded-lg border border-green-500/20">
                 <Coffee className="w-6 h-6 text-yellow-400" />
                 <div>
-                  <div className="text-white font-mono font-semibold">1000+</div>
+                  <div className="text-white font-mono font-semibold">742+</div>
                   <div className="text-gray-400 font-mono text-sm">Cups of Coffee</div>
                 </div>
               </div>
@@ -76,7 +73,7 @@ const AboutMe = () => {
               <div className="flex items-center space-x-3 p-4 bg-gray-800/50 rounded-lg border border-green-500/20">
                 <Lightbulb className="w-6 h-6 text-pink-400" />
                 <div>
-                  <div className="text-white font-mono font-semibold">50+</div>
+                  <div className="text-white font-mono font-semibold">5+</div>
                   <div className="text-gray-400 font-mono text-sm">Projects Built</div>
                 </div>
               </div>

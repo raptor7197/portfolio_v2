@@ -42,7 +42,7 @@ const GitHubStats = () => {
       const userData = await userResponse.json();
       setUserData(userData);
 
-      const reposResponse = await fetch(`https://api.github.com/users/${user}/repos?sort=updated&per_page=4`);
+      const reposResponse = await fetch(`https://api.github.com/users/${user}/repos?sort=updated&per_page=7`);
       if (!reposResponse.ok) {
         throw new Error('Failed to fetch repositories');
       }
@@ -73,6 +73,8 @@ const GitHubStats = () => {
   };
 
   const totalStars = repositories.reduce((sum, repo) => sum + repo.stargazers_count, 0);
+  // const totalcommits= repositories.reduce((sum,repo ))=> sum+repo.commits,0);
+
 
   return (
     <>
@@ -92,18 +94,18 @@ const GitHubStats = () => {
             <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full"></div>
             <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500 rounded-full"></div>
             <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
-            <span className="text-green-400 font-mono text-xs sm:text-sm ml-4">~/github-search</span>
+            <span className="text-green-400 font-mono text-xs sm:text-sm ml-4"></span>
           </div>
           
           <div className="flex gap-2">
             
-            <button
+            {/* <button
               onClick={handleSearch}
               disabled={loading}
               className="px-4 py-2 bg-green-500/20 border border-green-500/30 rounded text-green-400 font-mono text-sm hover:bg-green-500/30 transition-colors disabled:opacity-50"
             >
              
-            </button>
+            </button> */}
           </div>
         </div>
 
@@ -127,11 +129,11 @@ const GitHubStats = () => {
                       <Github className="w-4 h-4 sm:w-6 sm:h-6 text-green-400" />
                     </div>
                   </div>
-                  <div className="text-lg sm:text-2xl font-bold text-white font-mono mb-1 sm:mb-2">
-                    {userData.public_repos}
+                  <div className="text-lg sm:text-2xl  text-white font-sans mb-1 sm:mb-2">
+                     Repositories 
                   </div>
                   <div className="text-gray-400 text-xs sm:text-sm font-mono">
-                    Repositories
+                     {userData.public_repos}
                   </div>
                 </div>
               </div>
@@ -159,11 +161,11 @@ const GitHubStats = () => {
                       <User className="w-4 h-4 sm:w-6 sm:h-6 text-blue-400" />
                     </div>
                   </div>
-                  <div className="text-lg sm:text-2xl font-bold text-white font-mono mb-1 sm:mb-2">
-                    {userData.followers}
+                  <div className="text-lg sm:text-2xl font-sans text-white  mb-1 sm:mb-2">
+                    Followers
                   </div>
                   <div className="text-gray-400 text-xs sm:text-sm font-mono">
-                    Followers
+                     {userData.followers}
                   </div>
                 </div>
               </div>
@@ -176,10 +178,10 @@ const GitHubStats = () => {
                     </div>
                   </div>
                   <div className="text-lg sm:text-2xl font-bold text-white font-mono mb-1 sm:mb-2">
-                    {formatDate(userData.created_at)}
+                    Since
                   </div>
                   <div className="text-gray-400 text-xs sm:text-sm font-mono">
-                    Joined
+                     {formatDate(userData.created_at)}
                   </div>
                 </div>
               </div>
@@ -236,7 +238,7 @@ const GitHubStats = () => {
               </div>
               
               <h4 className="text-green-400 font-mono text-xs sm:text-sm mb-4">
-                <span className="text-gray-500">$</span> git log --oneline -4
+                <span className="text-gray-500">$</span> git log --oneline -7
               </h4>
               
               <div className="space-y-3">

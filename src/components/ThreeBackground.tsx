@@ -8,7 +8,7 @@ function MatrixRain() {
   const groupRef = useRef<THREE.Group>(null); //create a 3.js object 
   
   const streams = useMemo(() => {
-    const streamCount = 18;
+    const streamCount = 500;
     const streams = [];
     
     for (let i = 0; i < streamCount; i++) {
@@ -18,7 +18,7 @@ function MatrixRain() {
           char: '•',
           y: Math.random() * 100 + 50,
           opacity: Math.max(0.1, 1 - j * 0.1),
-          speed: 0.5 + Math.random()
+          speed:  Math.random() //speed controls does not seem to be working 
         }))
       });
     }
@@ -32,7 +32,6 @@ function MatrixRain() {
         stream.characters.forEach((char, charIndex) => {
           char.y -= char.speed;
           
-          // Reset character when it goes off screen
           if (char.y < -50) {
             char.y = 50 + Math.random() * 20;
             char.char = String.fromCharCode(0x30A0 + Math.random() * 96);
@@ -59,9 +58,11 @@ function MatrixRain() {
             key={`${streamIndex}-${charIndex}`}
             position={[stream.x, char.y, -20]}
           >
-            <planeGeometry args={[1, 1.5]} />
+  <sphereGeometry args={[0.1, 8, 8]} /> {/*this is for thr type of character u want to flow here it is a sphere*/ }
+    <meshStandardMaterial color={`rgba(0,255,0,${char.opacity})`} /> 
+
             <meshBasicMaterial
-              color="#00ff41"
+              color="#00f241"
               transparent
               opacity={char.opacity}
               side={THREE.DoubleSide}

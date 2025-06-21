@@ -17,7 +17,6 @@ const CustomCursor = () => {
   );
 
   useEffect(() => {
-    // Check if device is mobile
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768 || 'ontouchstart' in window);
     };
@@ -29,7 +28,6 @@ const CustomCursor = () => {
   }, []);
 
   useEffect(() => {
-    // Don't run cursor animations on mobile
     if (isMobile) return;
 
     let running = true;
@@ -43,11 +41,10 @@ const CustomCursor = () => {
         cursorRef.current.style.transform = `translate3d(${last.x - 10}px,${last.y - 10}px,0)`;
       }
       
-      // Animate trailing particles with faster movement
       let prev = { ...last };
       setTrails((trails) =>
         trails.map((trail, i) => {
-          const lag = 0.25 - i * 0.035; // Increased lag for faster response
+          const lag = 0.25 - i * 0.35; // Increased lag for faster response
           prev.x += ((mouse.current.x - prev.x) * lag);
           prev.y += ((mouse.current.y - prev.y) * lag);
           
@@ -105,22 +102,20 @@ const CustomCursor = () => {
 
   return (
     <>
-      {/* Main Solid Cursor */}
       <div
         ref={cursorRef}
         className={`fixed pointer-events-none z-[9999] w-5 h-5 rounded-full transition-all duration-100 ${
           isHovering 
             ? 'bg-cyan-400 scale-150 shadow-xl shadow-cyan-400/60' 
             : isClicking
-            ? 'bg-pink-500 scale-75 shadow-xl shadow-pink-500/60'
-            : 'bg-green-400 shadow-lg shadow-green-400/50'
+            ? 'bg-violet-700 scale-75 shadow-xl shadow-violet-500'
+            : 'bg-green-100 shadow-lg shadow-green-400/50'
         }`}
         style={{
           left: 0,
           top: 0,
         }}
       >
-        {/* Inner glow effect */}
         <div className={`absolute inset-0 rounded-full ${
           isHovering 
             ? 'bg-cyan-300/40' 
@@ -129,8 +124,7 @@ const CustomCursor = () => {
             : 'bg-green-300/40'
         }`} />
       </div>
-
-      {/* Solid Color Trail Effect */}
+        {/* big circle behind */}
       {trails.map((trail, i) => (
         <div
           key={trail.id}
@@ -154,8 +148,7 @@ const CustomCursor = () => {
           }}
         />
       ))}
-
-      {/* Click Ripple Effect */}
+{/* ripple effect  */}
       {isClicking && (
         <div
           className="fixed pointer-events-none z-[9997] w-12 h-12 rounded-full border-2 border-pink-400/60 animate-ping"
