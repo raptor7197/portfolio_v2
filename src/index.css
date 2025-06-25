@@ -3,8 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import Professional Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&display=swap');
 
 @layer base {
   :root {
@@ -29,6 +29,11 @@
     --ring: 142 76% 36%;
     --radius: 0.5rem;
   }
+}
+
+
+@theme {
+  --font-lexend: "Lexend Giga", sans-serif;
 }
 
 @layer base {
@@ -56,7 +61,6 @@
   }
 }
 
-/* Terminal Animations */
 @keyframes terminal-blink {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
@@ -161,7 +165,6 @@
   }
 }
 
-/* Glow animation for hover effects */
 @keyframes glow-pulse {
   0%, 100% {
     box-shadow: 0 0 5px rgba(34, 197, 94, 0.3), 0 0 10px rgba(34, 197, 94, 0.2), 0 0 15px rgba(34, 197, 94, 0.1);
@@ -189,7 +192,6 @@
   }
 }
 
-/* Terminal Animation Classes */
 .animate-terminal-blink {
   animation: terminal-blink 1.2s infinite;
 }
@@ -238,7 +240,6 @@
   animation-delay: 0.5s;
 }
 
-/* Glow hover effects */
 .glow-hover {
   transition: box-shadow 0.3s ease-in-out;
 }
@@ -263,12 +264,10 @@
   animation: glow-pulse-pink 2s ease-in-out infinite;
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Terminal-themed scrollbar */
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -288,7 +287,6 @@ html {
   background: linear-gradient(180deg, #16a34a, #15803d);
 }
 
-/* Terminal Typography Utilities */
 .text-balance {
   text-wrap: balance;
 }
@@ -301,7 +299,6 @@ html {
   letter-spacing: -0.05em;
 }
 
-/* Terminal Effects */
 .terminal-glow {
   text-shadow: 0 0 5px #22c55e, 0 0 10px #22c55e, 0 0 15px #22c55e;
 }
@@ -315,14 +312,12 @@ html {
   background: linear-gradient(135deg, #001100 0%, #000800 50%, #000000 100%);
 }
 
-/* Terminal Prompt Effect */
 .terminal-prompt::before {
   content: '$ ';
   color: #22c55e;
   font-weight: bold;
 }
 
-/* Terminal Scan Line Effect */
 .terminal-scanline::after {
   content: '';
   position: absolute;

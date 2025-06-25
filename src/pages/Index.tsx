@@ -18,7 +18,6 @@ const Index = () => {
       <CustomCursor />
       <ThreeBackground />
       
-      {/* Subtle blur overlay for the entire background */}
       <div className="fixed inset-0 backdrop-blur-[0.5px] pointer-events-none z-0"></div>
       
       <Navigation />
@@ -36,11 +35,11 @@ const Index = () => {
       </div>
       
       <div id="projects">
-        <Projects />
+        {/* <Projects /> */}
       </div>
       
       <div id="experience">
-        <Experience />
+        {/* <Experience /> */}
       </div>
       
       <div id="github">
@@ -55,7 +54,6 @@ const Index = () => {
         <Contact />
       </div>
 
-      {/* Terminal Footer */}
       <footer className="relative z-10 bg-gray-900/90 border-t border-green-500/30 py-8">
         <div className="container mx-auto px-6">
           <div className="bg-gray-900 border border-green-500/30 rounded-lg p-4 max-w-2xl mx-auto">
@@ -66,8 +64,8 @@ const Index = () => {
               <span className="text-green-400 font-mono text-sm ml-4">~/portfolio</span>
             </div>
             <p className="text-green-400 font-mono text-sm">
-              <span className="text-gray-500">$</span> echo "© 2024 John Doe. Terminal session active."
-              <span className="animate-terminal-blink ml-1">_</span>
+              <span className="text-gray-500">$</span> {new Date().getFullYear()} Vamsi Krishna. No rights reserved Do what you like "
+              <span className="animate-terminal-blink ml-1">__</span>
             </p>
           </div>
         </div>

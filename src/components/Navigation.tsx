@@ -40,13 +40,11 @@ const Navigation = () => {
           : 'bg-gray-900/90 border-green-500/30'
       }`}>
         <div className="flex items-center justify-between h-12 sm:h-16 px-3 sm:px-4 md:px-8">
-          {/* Terminal Logo */}
           <div className="flex items-center space-x-2 text-green-400">
             <Terminal className="w-4 h-4 sm:w-6 sm:h-6" />
             <span className="font-mono font-bold text-sm sm:text-lg">~/portfolio</span>
           </div>
 
-          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-6">
             {navItems.map((item) => (
               <button
@@ -62,7 +60,6 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="lg:hidden text-green-400 p-1.5 sm:p-2 hover:bg-green-500/10 rounded border border-green-500/30 transition-colors"
@@ -71,7 +68,6 @@ const Navigation = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="lg:hidden absolute top-12 sm:top-16 left-0 right-0 rounded-b-lg bg-gray-900/98 border-t border-green-500/30 max-h-[70vh] overflow-y-auto">
             <div className="py-2 sm:py-4">

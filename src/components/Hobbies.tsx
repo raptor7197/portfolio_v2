@@ -7,19 +7,23 @@ const Hobbies = () => {
   const [expandedHobby, setExpandedHobby] = useState<string | null>(null);
 
   const recentMovies = [
-    { title: "The Matrix Resurrections", year: "2021", genre: "Sci-Fi" },
-    { title: "Dune", year: "2021", genre: "Adventure" },
+    { title: "Dark", year: "2017", genre: "Thriller" },
+    { title: "Spiderman - across the spider verse", year: "2023", genre: "Adventure" },
     { title: "Spider-Man: No Way Home", year: "2021", genre: "Action" },
-    { title: "Inception", year: "2010", genre: "Thriller" },
+    { title: "Salaar - Ceasefire", year: "2023", genre: "Action ,adventure fiction" },
     { title: "Interstellar", year: "2014", genre: "Drama" }
   ];
 
   const recentBooks = [
-    { title: "Clean Code", author: "Robert C. Martin", category: "Programming" },
-    { title: "The Pragmatic Programmer", author: "David Thomas", category: "Development" },
-    { title: "You Don't Know JS", author: "Kyle Simpson", category: "JavaScript" },
+    { title: "Shiva Triology", author: "Amish Tripathi", category: "Fiction" },
+    { title: "Revolution 2020", author: "chetan Bhagat", category: "Fiction" },
+    { title: "", author: "Kyle Simpson", category: "JavaScript" },
     { title: "Atomic Habits", author: "James Clear", category: "Self-Help" },
     { title: "The DevOps Handbook", author: "Gene Kim", category: "Technology" }
+  ];
+
+  const learning = [
+    
   ];
 
   const hobbies = [
@@ -101,7 +105,7 @@ const Hobbies = () => {
                 </div>
                 <div className="absolute top-2 right-2">
                   <span className="text-green-400 font-mono text-xs opacity-50">
-                    {hobby.id === 'movies' || hobby.id === 'books' ? '[click]' : '[info]'}
+                    {hobby.id === 'movies' || hobby.id === 'books' || hobby.id ==='learning' ? '[click]' : '[info]'}
                   </span>
                 </div>
               </div>
@@ -116,7 +120,7 @@ const Hobbies = () => {
         <div className="flex items-center justify-between mb-6 z-[10002]">
           <h3 className="text-xl font-bold text-red-400 font-mono flex items-center gap-3 z-[10003]">
             <Film className="w-5 h-5" />
-            ~/movies/recently_watched
+            ~/movies/favourites
           </h3>
           <button
             onClick={closePopup}
@@ -151,7 +155,7 @@ const Hobbies = () => {
                 <div className="flex items-center justify-between mb-6 z-[10002]">
                   <h3 className="text-xl font-bold text-blue-400 font-mono flex items-center gap-3 z-[10003]">
                     <Book className="w-5 h-5" />
-                    ~/books/recently_read
+                    ~/books/favourites
                   </h3>
                   <button
                     onClick={closePopup}

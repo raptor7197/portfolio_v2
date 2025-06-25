@@ -89,13 +89,13 @@ const GitHubStats = () => {
           </p>
         </div>
 
-        <div className="mb-6 sm:mb-8 bg-gray-900/80 border border-green-500/30 rounded-lg p-4 sm:p-6 backdrop-blur-sm">
-          <div className="flex items-center space-x-2 mb-4">
+        <div className="">
+          {/* <div className="flex items-center space-x-2 mb-4">
             <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full"></div>
             <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500 rounded-full"></div>
             <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
             <span className="text-green-400 font-mono text-xs sm:text-sm ml-4"></span>
-          </div>
+          </div> */}
           
           <div className="flex gap-2">
             

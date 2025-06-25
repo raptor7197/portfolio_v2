@@ -6,47 +6,50 @@ const Skills = () => {
   
   const skills = [
     { 
-      name: "React", 
-      level: 95, 
+      name: "Frontend", 
+      level: 85, 
       color: "from-green-400 to-green-600",
-      description: "Building dynamic UIs with hooks, context, and modern patterns",
-      tools: ["Next.js", "Vite", "React Router", "Redux Toolkit"]
+      description: "Building breathtaking UIs with hooks, context, and modern patterns",
+      tools: ["Next.js", "React", "Tailwindcss", "vite","HTML & CSS","TypeScript"]
     },
     { 
-      name: "TypeScript", 
-      level: 90, 
+      name: "Backend", 
+      level: 60, 
       color: "from-blue-400 to-blue-600",
-      description: "Type-safe development with advanced generics and utility types",
-      tools: ["Zod", "tRPC", "Prisma", "Type Guards"]
+      description: "Building the behind-the-scenes of websites and applications",
+      tools: ["Express", "Django", "RESTAPI's", "NodeJS" ,"MySQL","Websockets"]
     },
     { 
-      name: "Node.js", 
-      level: 85, 
-      color: "from-green-500 to-teal-500",
-      description: "Server-side JavaScript with Express, APIs, and microservices",
-      tools: ["Express", "Fastify", "Socket.io", "PM2"]
-    },
-    { 
-      name: "Three.js", 
-      level: 80, 
-      color: "from-purple-400 to-pink-500",
-      description: "3D graphics, animations, and interactive web experiences",
-      tools: ["R3F", "Drei", "Cannon", "GSAP"]
-    },
-    { 
-      name: "Python", 
-      level: 75, 
-      color: "from-yellow-400 to-orange-500",
-      description: "Data analysis, automation, and backend development",
-      tools: ["Django", "FastAPI", "Pandas", "NumPy"]
-    },
-    { 
-      name: "MongoDB", 
-      level: 85, 
+      name: "Machine learning", 
+      level: 65, 
       color: "from-teal-400 to-blue-500",
-      description: "NoSQL database design, aggregation, and scaling",
-      tools: ["Mongoose", "Atlas", "Compass", "GridFS"]
+      description: "Creating intelligent systems that learn from data and make predictions",
+      tools: ["Numpy and Pandas", "Tensorflow", "BeautifulSoup", "Scikit-learn", "Matplotlib", "Seaborn", "PyTorch", "NLTK",]
     },
+    
+    
+    { 
+      name: "Devops", 
+      level: 55, 
+      color: "from-yellow-400 to-orange-500",
+      description: "Hosting applications, managing servers, and automating workflows",
+      tools: ["Docker", "Kubernetes", "CI/CD", "Terraform","AWS", "GitHub Actions", "Jenkins", "Grafana"]
+    },
+    { 
+      name: "Quantum", 
+      level: 45, 
+      color: "from-teal-400 to-blue-500",
+      description: "A niche and upcoming field",
+      tools: ["Pennylane", "Qiskit", "Mitiq", "Quantum Circuits","Quantum Machine Learning"]
+    },
+    { 
+      name: "Softwares", 
+      level: 75, 
+      color: "from-green-500 to-teal-500",
+      description: "various tools that i use in my daily Life",
+      tools: ["Git & Github", "Docker", "Figma","VS code","Postman", "MongoDB Compass","Linux"]
+    },
+    
   ];
 
   const handleSkillClick = (skillName: string) => {
@@ -54,9 +57,8 @@ const Skills = () => {
   };
 
   return (
-    <section className="relative py-24 px-4 sm:px-6 z-10 bg-black/90">
+    <section className="relative py-24 px-4 sm:px-6 z-10 bg-black/50 border-t border-b border-green-500/60">
       <div className="container mx-auto max-w-6xl">
-        {/* Terminal Header */}
         <div className="text-center mb-20">
           <div className="inline-block bg-gray-900 border border-green-500/30 rounded-lg p-4 mb-8">
             <div className="flex items-center space-x-2 mb-4">
@@ -74,16 +76,14 @@ const Skills = () => {
           </p>
         </div>
 
-        {/* Moving Emoji Strip */}
         <div className="mb-16">
-          <EmojiStrip />
+          {/* <EmojiStrip />  */}
+          {/* this has to be changed */}
         </div>
 
-        {/* Terminal Skills Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skills.map((skill, index) => (
             <div key={skill.name} className="group">
-              {/* Skill Bar */}
               <div 
                 className="bg-gray-900 border border-green-500/30 rounded-lg p-4 cursor-pointer hover:border-green-400/50 transition-all duration-300 glow-hover"
                 onClick={() => handleSkillClick(skill.name)}
@@ -101,7 +101,6 @@ const Skills = () => {
                   </div>
                 </div>
                 
-                {/* Progress Bar */}
                 <div className="w-full bg-gray-800 rounded-sm h-2 overflow-hidden border border-gray-700">
                   <div
                     className={`h-full bg-gradient-to-r ${skill.color} transition-all duration-1000 delay-${index * 100}`}
@@ -109,14 +108,12 @@ const Skills = () => {
                   />
                 </div>
                 
-                {/* Terminal Output */}
                 <div className="mt-2 flex items-center space-x-2 opacity-60">
                   <span className="text-green-400 font-mono text-xs">&gt;</span>
                   <span className="text-gray-400 font-mono text-xs">Status: Active</span>
                 </div>
               </div>
 
-              {/* Expanded Details */}
               {activeSkill === skill.name && (
                 <div className="mt-4 bg-gray-900 border border-green-500/30 rounded-lg p-4 animate-fade-in glow-hover">
                   <div className="space-y-3">
@@ -158,7 +155,7 @@ const Skills = () => {
           <div className="inline-block bg-gray-900 border border-green-500/30 rounded-lg p-3 glow-hover">
             <span className="text-green-400 font-mono text-sm">
               <span className="text-gray-500">$</span> echo "Skills loaded successfully" 
-              <span className="animate-pulse">_</span>
+              <span className="animate-pulse">_.</span>
             </span>
           </div>
         </div>

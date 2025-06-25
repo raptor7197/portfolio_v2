@@ -151,8 +151,8 @@ const cube = new THREE.Mesh(geometry, material);`
       const projectName = cmd.split(' ')[1];
       const project = projects.find(p => p.id === projectName);
       if (project) {
-        newHistory.push(`🚀 Launching demo for ${project.title}...`);
-        newHistory.push(`✅ Demo running at localhost:3000`);
+        newHistory.push(` Launching demo for ${project.title}...`);
+        newHistory.push(` Demo running at localhost:3000`);
       } else {
         newHistory.push(`demo: ${projectName}: Project not found`);
       }
@@ -208,7 +208,6 @@ const cube = new THREE.Mesh(geometry, material);`
   }, [terminalHistory]);
 
   useEffect(() => {
-    // Auto-demo sequence
     setTimeout(() => {
       executeTypingAnimation('ls', () => handleCommand('ls'));
     }, 3000);
@@ -217,7 +216,6 @@ const cube = new THREE.Mesh(geometry, material);`
   return (
     <section className="relative py-12 sm:py-24 px-4 sm:px-6 z-10">
       <div className="container mx-auto max-w-7xl">
-        {/* Header */}
         <div className="text-center mb-12 sm:mb-20">
           <span className="inline-flex items-center gap-2 px-3 sm:px-5 py-2 rounded-full bg-green-500/10 border border-green-500/20 mb-4 sm:mb-6">
             <Terminal className="w-4 h-4 sm:w-5 sm:h-5 text-green-400" />
@@ -225,7 +223,7 @@ const cube = new THREE.Mesh(geometry, material);`
               Interactive Projects
             </span>
           </span>
-          <h2 className="text-3xl sm:text-5xl md:text-7xl font-black mb-4 sm:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-400 to-pink-400">
+          <h2 className="text-2xl sm:text-5xl md:text-7xl font-black mb-4 sm:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-400 to-pink-400">
             Project Terminal
           </h2>
           <p className="text-base sm:text-xl text-gray-300 max-w-2xl mx-auto">
@@ -234,10 +232,9 @@ const cube = new THREE.Mesh(geometry, material);`
         </div>
 
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 lg:gap-8">
-          {/* Terminal Interface */}
+
           <div className="order-2 xl:order-1">
             <div className="bg-gray-900/90 backdrop-blur border border-green-500/30 rounded-lg overflow-hidden">
-              {/* Terminal Header */}
               <div className="flex items-center justify-between px-4 py-3 bg-gray-800/50 border-b border-green-500/20">
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-red-500 rounded-full"></div>
@@ -247,7 +244,6 @@ const cube = new THREE.Mesh(geometry, material);`
                 <span className="text-green-400 font-mono text-sm">~/projects</span>
               </div>
 
-              {/* Terminal Content */}
               <div 
                 ref={terminalRef}
                 className="h-64 sm:h-80 overflow-y-auto p-4 font-mono text-sm"
@@ -274,8 +270,8 @@ const cube = new THREE.Mesh(geometry, material);`
                   </span>
                 </div>
               </div>
+              
 
-              {/* Quick Commands */}
               <div className="px-4 py-3 bg-gray-800/30 border-t border-green-500/20">
                 <div className="flex flex-wrap gap-2">
                   {['help', 'ls', `cd ${currentProject.id}`, `demo ${currentProject.id}`].map((cmd) => (
@@ -286,16 +282,16 @@ const cube = new THREE.Mesh(geometry, material);`
                     >
                       {cmd}
                     </button>
-                  ))}
+                  ))} <div className='animate-pulse text-grey-200'>
+                    {`{A work in progress}`}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Project Preview */}
           <div className="order-1 xl:order-2">
             <div className="bg-gray-900/90 backdrop-blur border border-green-500/30 rounded-lg overflow-hidden">
-              {/* Project Header with Navigation */}
               <div className="px-4 sm:px-6 py-4 bg-gray-800/50 border-b border-green-500/20">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center space-x-3">
@@ -325,7 +321,6 @@ const cube = new THREE.Mesh(geometry, material);`
                 <p className="text-sm text-gray-400">{currentProject.description}</p>
               </div>
 
-              {/* Project Image */}
               <div className="relative h-32 sm:h-48 overflow-hidden">
                 <img
                   src={currentProject.preview}
@@ -337,7 +332,6 @@ const cube = new THREE.Mesh(geometry, material);`
                 </div>
               </div>
 
-              {/* Code Preview */}
               <div className="p-4 sm:p-6">
                 <div className="bg-black/50 rounded-lg p-3 sm:p-4 mb-4">
                   <div className="flex items-center gap-2 mb-2">
@@ -349,7 +343,6 @@ const cube = new THREE.Mesh(geometry, material);`
                   </pre>
                 </div>
 
-                {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2">
                   {currentProject.tech.map((tech, index) => (
                     <span key={index} className="px-2 sm:px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-xs font-semibold border border-green-500/30">
@@ -360,7 +353,6 @@ const cube = new THREE.Mesh(geometry, material);`
               </div>
             </div>
 
-            {/* Project Navigation Dots */}
             <div className="mt-4 flex justify-center space-x-2">
               {projects.map((_, index) => (
                 <button

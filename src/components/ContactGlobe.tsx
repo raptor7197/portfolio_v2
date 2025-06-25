@@ -11,10 +11,9 @@ function AnimatedGlobe() {
   const ringRef3 = useRef<THREE.Mesh>(null);
   
   const particlesPosition = useMemo(() => {
-    const positions = new Float32Array(2000 * 3); // Increased from 800 to 2000
+    const positions = new Float32Array(2000 * 3); 
     
     for (let i = 0; i < 2000; i++) {
-      // Create sphere distribution with more density
       const phi = Math.acos(-1 + (2 * i) / 2000);
       const theta = Math.sqrt(2000 * Math.PI) * phi;
       
@@ -29,13 +28,10 @@ function AnimatedGlobe() {
 
   useFrame((state) => {
     if (globeRef.current) {
-      // Earth-like rotation - slow and steady around Y-axis
       globeRef.current.rotation.y = state.clock.elapsedTime * 0.15;
-      // Slight tilt like Earth's axis
       globeRef.current.rotation.z = 0.4;
     }
     
-    // Jupiter-like rings with different speeds and orientations
     if (ringRef1.current) {
       ringRef1.current.rotation.y = state.clock.elapsedTime * 0.3;
       ringRef1.current.rotation.x = Math.PI / 6; // Tilted
@@ -54,19 +50,17 @@ function AnimatedGlobe() {
 
   return (
     <group>
-      {/* Main Globe Points */}
       <Points ref={globeRef} positions={particlesPosition} stride={3} frustumCulled={false}>
         <PointMaterial
           transparent
           color="#8b5cf6"
-          size={0.04} // Slightly smaller since we have more particles
+          size={0.04} 
           sizeAttenuation={true}
           depthWrite={false}
           opacity={0.8}
         />
       </Points>
       
-      {/* Multiple rings like Jupiter */}
       <mesh ref={ringRef1}>
         <torusGeometry args={[4.2, 0.02, 4, 64]} />
         <meshBasicMaterial color="#a855f7" transparent opacity={0.6} />
@@ -82,9 +76,8 @@ function AnimatedGlobe() {
         <meshBasicMaterial color="#ec4899" transparent opacity={0.4} />
       </mesh>
       
-      {/* Floating Particles Around Globe - increased density */}
       <Points positions={useMemo(() => {
-        const positions = new Float32Array(400 * 3); // Increased from 200 to 400
+        const positions = new Float32Array(400 * 3); 
         for (let i = 0; i < 400; i++) {
           const radius = 6 + Math.random() * 3;
           const phi = Math.random() * Math.PI * 2;

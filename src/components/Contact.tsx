@@ -197,8 +197,8 @@ const Contact = () => {
           )}
           
           {gameState.gameOver && (
-            <div className="text-center">
-              <div className="text-red-400 font-mono text-sm mb-2">Game Over!</div>
+            <div className="text-centerw">
+              <div className="text-red-400 font-mono text-sm mb-2">Crashed! better luck next time</div>
               <button
                 onClick={resetGame}
                 className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded text-green-400 font-mono text-sm hover:bg-green-500/30 transition-colors"
